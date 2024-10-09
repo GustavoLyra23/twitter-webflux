@@ -15,6 +15,7 @@ public class CustomReactiveUserDetailsService implements ReactiveUserDetailsServ
         this.userRepository = userRepository;
     }
 
+
     @Override
     public Mono<UserDetails> findByUsername(String username) {
         return userRepository.findByEmail(username)
@@ -22,6 +23,6 @@ public class CustomReactiveUserDetailsService implements ReactiveUserDetailsServ
                         .username(user.getUsername())
                         .password(user.getPassword())
                         .authorities(user.getAuthorities())
-                        .build());
+                        .build()).switchIfEmpty(Mono.empty());
     }
 }

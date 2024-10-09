@@ -20,6 +20,11 @@ public class JwtServerAuthenticationConverter implements ServerAuthenticationCon
 
 
     private String extractToken(ServerWebExchange exchange) {
-        return exchange.getRequest().getHeaders().getFirst(HttpHeaders.AUTHORIZATION);
+        String bearerToken = exchange.getRequest().getHeaders().getFirst(HttpHeaders.AUTHORIZATION);
+        if (bearerToken != null && bearerToken.startsWith("Bearer ")) {
+            return bearerToken.substring(7);
+        }
+        return null;
     }
+
 }
