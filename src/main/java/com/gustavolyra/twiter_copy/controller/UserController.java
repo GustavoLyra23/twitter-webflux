@@ -1,6 +1,6 @@
 package com.gustavolyra.twiter_copy.controller;
 
-import com.gustavolyra.twiter_copy.dto.UserDto;
+import com.gustavolyra.twiter_copy.dto.user.UserDto;
 import com.gustavolyra.twiter_copy.service.UserService;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;

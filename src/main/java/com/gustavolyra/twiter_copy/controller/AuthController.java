@@ -1,8 +1,8 @@
 package com.gustavolyra.twiter_copy.controller;
 
-import com.gustavolyra.twiter_copy.dto.UserDto;
-import com.gustavolyra.twiter_copy.dto.UserLoginDto;
-import com.gustavolyra.twiter_copy.dto.UserRequestDto;
+import com.gustavolyra.twiter_copy.dto.user.UserDto;
+import com.gustavolyra.twiter_copy.dto.user.UserLoginDto;
+import com.gustavolyra.twiter_copy.dto.user.UserRequestDto;
 import com.gustavolyra.twiter_copy.service.AuthService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;

@@ -1,6 +1,6 @@
 package com.gustavolyra.twiter_copy.service;
 
-import com.gustavolyra.twiter_copy.dto.UserDto;
+import com.gustavolyra.twiter_copy.dto.user.UserDto;
 import com.gustavolyra.twiter_copy.repository.UserRepository;
 import org.springframework.stereotype.Service;
 import reactor.core.publisher.Flux;

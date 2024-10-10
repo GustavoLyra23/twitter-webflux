@@ -1,5 +1,6 @@
 package com.gustavolyra.twiter_copy.entities;
 
+import com.gustavolyra.twiter_copy.enums.Role;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -10,12 +11,13 @@ import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 import java.util.Objects;
 
-@NoArgsConstructor
 @AllArgsConstructor
+@NoArgsConstructor
 @Setter
 @Getter
 @Document(collection = "users")
@@ -27,7 +29,15 @@ public class User implements UserDetails {
     @Indexed(unique = true)
     private String email;
     private String password;
+    private List<Role> roles = new ArrayList<>();
 
+
+    public User(String id, String name, String email, String password) {
+        this.id = id;
+        this.name = name;
+        this.email = email;
+        this.password = password;
+    }
 
     @Override
     public boolean equals(Object o) {
@@ -37,6 +47,7 @@ public class User implements UserDetails {
         return Objects.equals(email, user.email);
     }
 
+
     @Override
     public int hashCode() {
         return Objects.hashCode(email);
@@ -44,7 +55,7 @@ public class User implements UserDetails {
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
-        return List.of();
+        return roles;
     }
 
     @Override
